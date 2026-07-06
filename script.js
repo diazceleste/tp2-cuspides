@@ -131,34 +131,27 @@
   document.querySelectorAll('.stats__num[data-count]').forEach((el) => countObserver.observe(el));
 
   /* ---------------------------------------------------------------------- */
-  /* 4b. STEPPER "¿CÓMO TE PREPARAMOS?" (sección #metodo)                   */
+  /* 4b. ACCORDION "¿CÓMO TE PREPARAMOS?" (sección #metodo)                 */
   /*     Las etapas cambian solas a medida que se scrollea la sección;      */
-  /*     los números del stepper siguen siendo clickeables.                 */
+  /*     cada panel del accordion sigue siendo clickeable.                  */
   /* ---------------------------------------------------------------------- */
-  const stepperSteps = document.querySelectorAll('.stepper__step');
-  const methodPanels = document.querySelectorAll('.method__panel');
+  const accordionItems = document.querySelectorAll('.accordion__item');
   const methodScroll = document.getElementById('method-scroll');
 
   function activateStep(target) {
-    stepperSteps.forEach((btn) => {
-      const isActive = btn.dataset.step === target;
-      btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-selected', String(isActive));
-    });
-
-    methodPanels.forEach((panel) => {
-      const isActive = panel.dataset.panel === target;
-      panel.classList.toggle('is-active', isActive);
-      panel.hidden = !isActive;
+    accordionItems.forEach((item) => {
+      const isActive = item.dataset.step === target;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-selected', String(isActive));
     });
   }
 
-  stepperSteps.forEach((stepBtn) => {
-    stepBtn.addEventListener('click', () => activateStep(stepBtn.dataset.step));
+  accordionItems.forEach((item) => {
+    item.addEventListener('click', () => activateStep(item.dataset.step));
   });
 
-  if (methodScroll && stepperSteps.length) {
-    const totalSteps = stepperSteps.length;
+  if (methodScroll && accordionItems.length) {
+    const totalSteps = accordionItems.length;
 
     function onMethodScroll() {
       const rect = methodScroll.getBoundingClientRect();
@@ -172,6 +165,30 @@
 
     window.addEventListener('scroll', onMethodScroll, { passive: true });
     onMethodScroll();
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 4c. SLIDER COMPARATIVO "ANTES Y DESPUÉS" (sección #comparacion)        */
+  /* ---------------------------------------------------------------------- */
+  const compareSlider = document.getElementById('compare-slider');
+  const compareRange  = document.getElementById('compare-range');
+
+  if (compareSlider && compareRange) {
+    const setPos = (value) => compareSlider.style.setProperty('--pos', value + '%');
+    setPos(compareRange.value);
+    compareRange.addEventListener('input', () => setPos(compareRange.value));
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 4d. PUNTERO DE MOUSE PERSONALIZADO (círculo azul)                       */
+  /* ---------------------------------------------------------------------- */
+  const cursorDot = document.getElementById('cursor-dot');
+  if (cursorDot && window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursorDot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      cursorDot.classList.add('is-active');
+    });
+    document.addEventListener('mouseleave', () => cursorDot.classList.remove('is-active'));
   }
 
   /* ---------------------------------------------------------------------- */

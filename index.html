@@ -30,6 +30,9 @@
   <!-- Barra de progreso de scroll (acento técnico) -->
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
+  <!-- Puntero de mouse personalizado (círculo azul) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
   <!-- =========================================================== -->
   <!-- HEADER / NAVEGACIÓN GLOBAL                                   -->
   <!-- =========================================================== -->
@@ -69,14 +72,23 @@
     <!-- ///////////////// SECCIÓN 1 · HERO ///////////////// -->
     <section class="hero" id="hero">
       <div class="hero__media" aria-hidden="true">
-        <img class="hero__img" src="assets/img/hero.gradient.png" alt="Escalador ascendiendo una pared de hielo en la Patagonia" />
+        <img class="hero__img" src="assets/img/heroo.png" alt="Escalador ascendiendo una pared de hielo en la Patagonia" />
       </div>
 
-      <!-- Capa HUD: coordenadas, retícula, mira -->
-      <div class="hero__hud" aria-hidden="true">
-        <span class="hud-item hud-item--tl">VOLCÁN DOMUYO<br />ALTURA: 4709M S.N.M.</span>
-        <span class="hud-item hud-item--tr">49.2707° S<br />73.0424° W</span>
-        <span class="hud-crosshair"></span>
+      <!-- Nieve cayendo (decorativa) -->
+      <div class="hero__snow" aria-hidden="true">
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
       </div>
 
       <div class="hero__content container">
@@ -96,18 +108,34 @@
 
     </section>
 
-    <!-- ///////////////// BANNER · MARQUEE EN LOOP ///////////////// -->
-    <section class="giant-banner" aria-hidden="true">
-      <div class="giant-banner__track">
-        <span class="giant-banner__text">Enfrentate a las alturas de la Patagonia.</span>
-        <span class="giant-banner__text">Enfrentate a las alturas de la Patagonia.</span>
+    <!-- ///////////////// BANNER · CARRUSEL DE IMÁGENES EN LOOP ///////////////// -->
+    <section class="logo-marquee" aria-hidden="true">
+      <div class="logo-marquee__track">
+        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
+        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
       </div>
     </section>
 
     <!-- ///////////////// SECCIÓN 2 · TERRITORIO (CARRUSEL) ///////////////// -->
     <section class="territorio" id="territorio">
       <div class="container territorio__head">
-        <p class="eyebrow eyebrow--light reveal">// 01 — El territorio</p>
+        <p class="eyebrow eyebrow--light reveal">/01 — El territorio</p>
         <h2 class="section-title section-title--light section-title--center reveal">Un territorio que no negocia</h2>
         <p class="territorio__sub reveal">Incertidumbre, distancia y condiciones cambiantes</p>
       </div>
@@ -209,6 +237,12 @@
             formación, entrenamiento y acompañamiento profesional para poder
             progresar de manera segura y consciente.
           </p>
+          <div class="about__facts">
+            <span class="about__fact">Oriundos de Bariloche</span>
+            <span class="about__fact">Fundado en 2016</span>
+            <span class="about__fact">Andinistas profesionales</span>
+            <span class="about__fact">Certificados por la FAA</span>
+          </div>
         </div>
         <figure class="about__media reveal">
           <img src="assets/img/nosotros.png" alt="Los tres fundadores de Cúspides en la montaña" />
@@ -233,67 +267,90 @@
       </div>
     </section>
 
-    <!-- ///////////////// SECCIÓN 6 · ¿CÓMO TE PREPARAMOS? (STEPPER) ///////////////// -->
+    <!-- ///////////////// SECCIÓN 6 · ¿CÓMO TE PREPARAMOS? (ACCORDION SLIDER) ///////////////// -->
     <section class="method" id="metodo">
       <div class="container">
         <div class="method__scroll" id="method-scroll">
           <div class="method__sticky">
-            <p class="eyebrow reveal">// 02 — Nuestra metodología</p>
+            <p class="eyebrow reveal">/02 — Nuestra metodología</p>
             <h2 class="section-title section-title--light section-title--center reveal">¿Cómo te preparamos?</h2>
             <p class="method__sub reveal">Dividimos nuestra preparación por etapas</p>
 
-            <div class="method__card reveal">
-              <div class="stepper" role="tablist" aria-label="Etapas de preparación">
-                <button class="stepper__step is-active" type="button" data-step="1" role="tab" aria-selected="true">1</button>
-                <button class="stepper__step" type="button" data-step="2" role="tab" aria-selected="false">2</button>
-                <button class="stepper__step" type="button" data-step="3" role="tab" aria-selected="false">3</button>
-                <button class="stepper__step" type="button" data-step="4" role="tab" aria-selected="false">4</button>
-                <button class="stepper__step" type="button" data-step="5" role="tab" aria-selected="false">5</button>
-              </div>
+            <div class="accordion reveal" role="tablist" aria-label="Etapas de preparación">
+              <button class="accordion__item is-active" type="button" data-step="1" role="tab" aria-selected="true">
+                <img class="accordion__img" src="assets/img/preparacion.png" alt="Evaluación física en muro de escalada" />
+                <span class="accordion__overlay" aria-hidden="true"></span>
+                <span class="accordion__num">01</span>
+                <span class="accordion__content">
+                  <span class="accordion__title">Evaluación inicial</span>
+                  <span class="accordion__desc">Antes de definir un objetivo, analizamos experiencia previa, condición física y expectativas. Diagnóstico físico, técnico y psicológico inicial.</span>
+                </span>
+              </button>
 
-              <div class="method__panels">
-                <div class="method__panel is-active" data-panel="1" role="tabpanel">
-                  <div class="method__panel-text">
-                    <h3>Evaluación inicial</h3>
-                    <p>Antes de definir un objetivo, analizamos experiencia previa, condición física y expectativas. Diagnóstico físico, técnico y psicológico inicial.</p>
-                  </div>
-                  <div class="method__panel-media"><img src="assets/img/preparacion.png" alt="Evaluación física en muro de escalada" /></div>
-                </div>
-                <div class="method__panel" data-panel="2" role="tabpanel" hidden>
-                  <div class="method__panel-text">
-                    <h3>Preparación física</h3>
-                    <p>Acondicionamiento específico para carga, altura y frío sostenido. El cuerpo como herramienta.</p>
-                  </div>
-                  <div class="method__panel-media"><img src="assets/img/etapa2.png" alt="Entrenamiento con carga" /></div>
-                </div>
-                <div class="method__panel" data-panel="3" role="tabpanel" hidden>
-                  <div class="method__panel-text">
-                    <h3>Formación técnica</h3>
-                    <p>Cuerdas, anclajes, progresión en hielo y roca, navegación. El criterio antes que el reflejo.</p>
-                  </div>
-                  <div class="method__panel-media"><img src="assets/img/etapa4.png" alt="Maniobras de cuerda" /></div>
-                </div>
-                <div class="method__panel" data-panel="4" role="tabpanel" hidden>
-                  <div class="method__panel-text">
-                    <h3>Prácticas</h3>
-                    <p>Terreno real, condiciones reales. Errores controlados donde el margen todavía existe.</p>
-                  </div>
-                  <div class="method__panel-media"><img src="assets/img/etapa3.png" alt="Práctica en terreno real" /></div>
-                </div>
-                <div class="method__panel" data-panel="5" role="tabpanel" hidden>
-                  <div class="method__panel-text">
-                    <h3>Expedición</h3>
-                    <p>El ascenso deja de ser meta y pasa a ser consecuencia de todo lo anterior.</p>
-                  </div>
-                  <div class="method__panel-media"><img src="assets/img/etapa5.png" alt="Cumbre de expedición" /></div>
-                </div>
-              </div>
+              <button class="accordion__item" type="button" data-step="2" role="tab" aria-selected="false">
+                <img class="accordion__img" src="assets/img/etapa2.png" alt="Entrenamiento con carga" />
+                <span class="accordion__overlay" aria-hidden="true"></span>
+                <span class="accordion__num">02</span>
+                <span class="accordion__content">
+                  <span class="accordion__title">Preparación física</span>
+                  <span class="accordion__desc">Acondicionamiento específico para carga, altura y frío sostenido. El cuerpo como herramienta.</span>
+                </span>
+              </button>
+
+              <button class="accordion__item" type="button" data-step="3" role="tab" aria-selected="false">
+                <img class="accordion__img" src="assets/img/etapa4.png" alt="Maniobras de cuerda" />
+                <span class="accordion__overlay" aria-hidden="true"></span>
+                <span class="accordion__num">03</span>
+                <span class="accordion__content">
+                  <span class="accordion__title">Formación técnica</span>
+                  <span class="accordion__desc">Cuerdas, anclajes, progresión en hielo y roca, navegación. El criterio antes que el reflejo.</span>
+                </span>
+              </button>
+
+              <button class="accordion__item" type="button" data-step="4" role="tab" aria-selected="false">
+                <img class="accordion__img" src="assets/img/etapa3.png" alt="Práctica en terreno real" />
+                <span class="accordion__overlay" aria-hidden="true"></span>
+                <span class="accordion__num">04</span>
+                <span class="accordion__content">
+                  <span class="accordion__title">Prácticas</span>
+                  <span class="accordion__desc">Terreno real, condiciones reales. Errores controlados donde el margen todavía existe.</span>
+                </span>
+              </button>
+
+              <button class="accordion__item" type="button" data-step="5" role="tab" aria-selected="false">
+                <img class="accordion__img" src="assets/img/etapa5.png" alt="Cumbre de expedición" />
+                <span class="accordion__overlay" aria-hidden="true"></span>
+                <span class="accordion__num">05</span>
+                <span class="accordion__content">
+                  <span class="accordion__title">Expedición</span>
+                  <span class="accordion__desc">El ascenso deja de ser meta y pasa a ser consecuencia de todo lo anterior.</span>
+                </span>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ///////////////// SECCIÓN 6b · ANTES Y DESPUÉS (SLIDER COMPARATIVO) ///////////////// -->
+    <section class="compare" id="comparacion">
+      <div class="container">
+        <p class="eyebrow eyebrow--light reveal">/La transformación</p>
+        <h2 class="section-title section-title--light section-title--center reveal">Del muro de entrenamiento a la montaña real</h2>
+        <p class="compare__sub reveal">Deslizá para ver el camino que recorrés con nosotros</p>
+
+        <div class="compare-slider reveal" id="compare-slider">
+          <img class="compare-slider__img compare-slider__img--before" src="assets/img/antes.png" alt="Entrenamiento en el muro de escalada" />
+          <img class="compare-slider__img compare-slider__img--after" src="assets/img/despue.png" alt="Ascenso real en la montaña" />
+          <span class="badge compare-slider__tag compare-slider__tag--before">PRÁCTICA</span>
+          <span class="badge compare-slider__tag compare-slider__tag--after">REALIDAD</span>
+          <div class="compare-slider__divider" aria-hidden="true">
+            <span class="compare-slider__handle">↔</span>
+          </div>
+          <input type="range" min="0" max="100" value="50" class="compare-slider__range" id="compare-range" aria-label="Deslizá para comparar el antes y el después de la preparación" />
+        </div>
+      </div>
+    </section>
 
     <!-- ///////////////// SECCIÓN 7 · CITA ///////////////// -->
     <section class="quote" id="cita">
@@ -310,8 +367,8 @@
     <section class="programs" id="programas">
       <div class="container">
         <div class="programs__head">
-          <p class="eyebrow eyebrow--light reveal">// 03 — Objetivos, no paquetes</p>
-          <h2 class="section-title section-title--center reveal">Desafiá tus límites y enfrentá la cima</h2>
+          <p class="eyebrow eyebrow--light reveal">/03 — Programas para cada objetivo</p>
+          <h2 class="section-title section-title--center reveal">Desafiate y enfrentá la cima</h2>
           <p class="programs__sub reveal">Programas de preparación personalizados para tu objetivo</p>
         </div>
 
@@ -374,7 +431,7 @@
     <!-- ///////////////// SECCIÓN 9 · RESEÑAS ///////////////// -->
     <section class="reviews" id="resenas">
       <div class="container reviews__grid">
-        <h2 class="section-title section-title--light reviews__heading reveal">Quienes ya se animaron</h2>
+        <h2 class="section-title section-title--light reviews__heading reveal">Leelo de Quienes ya se animaron</h2>
 
         <div class="reviews__track">
           <article class="review-card reveal">
