@@ -534,6 +534,7 @@ padding-left: 30px; }
   letter-spacing: -0.01em;
   text-transform: uppercase;
   margin: 0.5rem 0 1.6rem;
+  text-shadow: 0 4px 14px rgba(7, 25, 49, 0.1);
 }
 .hero__sub {
   max-width: 45ch;
@@ -1073,7 +1074,7 @@ padding-left: 30px; }
   50%      { transform: rotate(5deg) translate(5%, 5%) translateY(-10px); }
 }
 
-.cause { position: relative; background: var(--ink); padding: var(--sect) 0; overflow: hidden; }
+.cause { position: relative; background: var(--ink); padding: var(--sect) 0; overflow: hidden; border-bottom: 2px solid var(--danger); }
 .cause::before {
   content: "";
   position: absolute;
@@ -1082,15 +1083,6 @@ padding-left: 30px; }
   background:
     linear-gradient(to top, rgba(14, 34, 61, 0.89) 40%, var(--ink) 100%),
     url("assets/img/textura-nieve.png") center / cover no-repeat;
-}
-.cause .giant-banner__text--inline {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  text-align: center; z-index: 0; white-space: normal;
-  padding-inline: 0;
-  font-size: clamp(3.5rem, 15vw, 11rem);
-  line-height: 1;
-  color: rgba(244, 241, 234, 0.126);
-  transform: translateY(12%);
 }
 .cause__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 1.6rem; align-items: center; }
 .cause__card {
@@ -1175,7 +1167,18 @@ padding-left: 30px; }
   transition: transform 0.4s var(--ease), border-color 0.3s;
 }
 .plan-card.plan-card:hover { transform: translateY(-6px) scale(1.03); position: relative; z-index: 2; }
-.plan-card--featured { border-width: 2px; border-color: var(--danger); }
+.plan-card--featured {
+  border-width: 2px; border-color: var(--danger);
+  transform: scale(1.04);
+  position: relative; z-index: 1;
+  box-shadow: 0 0 0 0 rgba(255, 78, 100, 0);
+  transition: transform 0.4s var(--ease), border-color 0.3s, box-shadow 0.4s var(--ease);
+}
+.plan-card--featured:hover {
+  transform: translateY(-6px) scale(1.07);
+  z-index: 2;
+  box-shadow: 0 0 28px 2px rgba(255, 78, 100, 0.3);
+}
 .plan-card__media { position: relative; height: 340px; flex-shrink: 0; }
 .plan-card__media img { width: 100%; height: 100%; object-fit: cover; }
 .plan-card__media::after {
@@ -1579,9 +1582,14 @@ padding-left: 30px; }
   border: 1px solid var(--hair-light);
   border-radius: var(--radius-card);
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.4s var(--ease);
+  box-shadow: 0 0 0 0 rgba(255, 78, 100, 0);
+  transition: border-color 0.3s, transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.team__grid .team-card:hover { border-color: var(--danger); transform: scale(1.03); }
+.team__grid .team-card:hover {
+  border-color: var(--danger);
+  transform: scale(1.03);
+  box-shadow: 0 0 28px 2px rgba(255, 78, 100, 0.3);
+}
 .team-card__media { position: relative; height: 340px; }
 .team-card__media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 0.4s var(--ease); }
 .team-card:hover .team-card__media img { filter: grayscale(0); }
@@ -1616,6 +1624,7 @@ padding-left: 30px; }
 .course-gallery__carousel { margin-top: 2.4rem; margin-bottom: 3.5rem; }
 .course-gallery__carousel .carousel__track { gap: 1rem; }
 .course-gallery__item {
+  position: relative;
   flex-shrink: 0; width: clamp(220px, 26vw, 320px);
   border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 1 / 1;
 }
@@ -1625,6 +1634,17 @@ padding-left: 30px; }
   transition: filter 0.4s var(--ease), transform 0.4s var(--ease);
 }
 .course-gallery__item:hover img { filter: grayscale(0); transform: scale(1.05); }
+.course-gallery__caption {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: flex-end;
+  padding: 1.2rem;
+  background: linear-gradient(to top, rgba(7, 25, 49, 0.85) 0%, rgba(7, 25, 49, 0.15) 45%, transparent 70%);
+  font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.04em;
+  color: var(--bone);
+  opacity: 0; transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+.course-gallery__item:hover .course-gallery__caption { opacity: 1; }
 
 /* -------------------------------------------------------------------------- */
 /* 19. FOOTER                                                                 */
@@ -1639,7 +1659,7 @@ padding-left: 30px; }
   display: grid; grid-template-columns: 1fr; gap: 2.5rem;
   margin-bottom: 2.8rem;
 }
-.site-footer__brand .brand__word { font-size: 1.6rem; display: block; margin-bottom: 0.8rem; }
+.site-footer__brand .site-footer__logo { height: 96px; width: auto; padding-left: 0; display: block; margin-bottom: 1rem; }
 .site-footer__brand p { font-size: 0.85rem; color: rgba(244,241,234,0.55); line-height: 1.7; margin-bottom: 1.4rem; }
 .footer-back { font-size: 0.72rem; padding: 0.75rem 1.3rem; }
 .site-footer__heading {
@@ -1751,8 +1771,9 @@ padding-left: 30px; }
   .manifest__inner {
     position: relative;
     min-height: auto;
-    padding: clamp(3rem, 10vh, 4.5rem) 0 clamp(5rem, 16vh, 7rem);
+    padding: clamp(4rem, 13vh, 6rem) 0 clamp(6.5rem, 20vh, 9rem);
   }
+  .topo-bridge { margin-top: -3px; }
 
   .about__text .section-title,
   .cause__text .section-title,
@@ -1775,7 +1796,6 @@ padding-left: 30px; }
   .break-desktop { display: none; }
   .cause__card { margin-inline: auto; }
   .cause__card-title { font-size: 1.05rem; }
-  .cause .giant-banner__text--inline { display: none; }
 
   .hero__content.container {
     margin-inline: auto;
@@ -1799,6 +1819,7 @@ padding-left: 30px; }
     text-align: center;
   }
   .footer-map__chip { left: 50%; transform: translateX(-50%); }
+  .site-footer__logo { margin-inline: auto; }
   .plan-card__price {
     justify-content: center;
   }
