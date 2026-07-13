@@ -64,6 +64,7 @@
     .lib-type-sample__meta { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; margin-top: 0.8rem; }
 
     /* Cuadrícula de tarjetas de ejemplo */
+    .lib-tarjetas-grid { display: grid; grid-template-columns: 1fr; gap: 1.8rem 2rem; }
     .lib-cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.6rem; }
     .lib-mini-media { height: 200px; background: linear-gradient(135deg, var(--ink-2), #0b1220 60%, #060a14); }
 
@@ -82,27 +83,23 @@
     }
     .lib-toc a:hover { border-color: var(--danger); color: var(--danger); }
 
-    /* HUD demo box */
-    .lib-hud-demo {
-      position: relative; height: 220px; border: 1px solid var(--hair-light); border-radius: var(--radius-card);
-      overflow: hidden; background: var(--ink-2);
-    }
-    .lib-hud-demo .hud-item--tl { top: 24px; left: 24px; }
-    .lib-hud-demo .hud-item--tr { top: 24px; right: 24px; }
-    .lib-hud-demo .hud-crosshair { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
     @media (min-width: 720px) {
       .lib-swatches { grid-template-columns: repeat(4, 1fr); }
-      .lib-cards-grid { grid-template-columns: repeat(3, 1fr); }
+      .lib-tarjetas-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 1024px) {
       .lib-swatches { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    /* Esta página no usa el puntero custom (.cursor-dot) del sitio: restauramos el cursor estándar */
+    @media (pointer: fine) {
+      * { cursor: auto !important; }
+      a, button, [role="button"], [onclick] { cursor: pointer !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="grid-overlay" aria-hidden="true"></div>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- =========================================================== -->
@@ -153,9 +150,10 @@
         <a href="#lib-tipografia">Tipografía</a>
         <a href="#lib-botones">Botones</a>
         <a href="#lib-badges">Badges</a>
-        <a href="#lib-hud">Elementos HUD</a>
         <a href="#lib-tarjetas">Tarjetas</a>
-        <a href="#lib-stepper">Stepper</a>
+        <a href="#lib-stats">Barra de stats</a>
+        <a href="#lib-faq">Acordeón / FAQ</a>
+        <a href="#lib-banner">Banner marquee</a>
         <a href="#lib-precio">Módulo de precio</a>
         <a href="#lib-nav">Navegación</a>
         <a href="#lib-footer">Footer</a>
@@ -172,11 +170,11 @@
       <div class="lib-swatches">
         <div class="lib-swatch">
           <div class="lib-swatch__fill" style="background: var(--ink);"></div>
-          <div class="lib-swatch__meta"><span class="lib-swatch__name">Ink</span><span class="lib-swatch__hex">--ink · #0e223d</span></div>
+          <div class="lib-swatch__meta"><span class="lib-swatch__name">Ink</span><span class="lib-swatch__hex">--ink · #071931</span></div>
         </div>
         <div class="lib-swatch">
           <div class="lib-swatch__fill" style="background: var(--ink-2);"></div>
-          <div class="lib-swatch__meta"><span class="lib-swatch__name">Ink 2</span><span class="lib-swatch__hex">--ink-2 · #3e5679</span></div>
+          <div class="lib-swatch__meta"><span class="lib-swatch__name">Ink 2</span><span class="lib-swatch__hex">--ink-2 · #1c3558</span></div>
         </div>
         <div class="lib-swatch">
           <div class="lib-swatch__fill" style="background: var(--ink-3);"></div>
@@ -191,8 +189,12 @@
           <div class="lib-swatch__meta"><span class="lib-swatch__name">Bone 2</span><span class="lib-swatch__hex">--bone-2 · #e7e2d5</span></div>
         </div>
         <div class="lib-swatch">
-          <div class="lib-swatch__fill" style="background: var(--cobalt);"></div>
-          <div class="lib-swatch__meta"><span class="lib-swatch__name">Cobalt</span><span class="lib-swatch__hex">--cobalt · #586f92</span></div>
+          <div class="lib-swatch__fill" style="background: var(--white); border-bottom: 1px solid var(--hair-light);"></div>
+          <div class="lib-swatch__meta"><span class="lib-swatch__name">White</span><span class="lib-swatch__hex">--white · #ffffff</span></div>
+        </div>
+        <div class="lib-swatch">
+          <div class="lib-swatch__fill" style="background: var(--cobalt-hi);"></div>
+          <div class="lib-swatch__meta"><span class="lib-swatch__name">Cobalt Hi</span><span class="lib-swatch__hex">--cobalt-hi · #23467a</span></div>
         </div>
         <div class="lib-swatch">
           <div class="lib-swatch__fill" style="background: var(--danger);"></div>
@@ -256,8 +258,10 @@
         </div>
       </div>
       <div class="lib-block">
-        <span class="lib-block__label">Tamaño XL</span>
+        <span class="lib-block__label">Tamaños</span>
         <div class="lib-row">
+          <a href="#" class="btn btn--danger btn--sm" onclick="return false;">Inscribite</a>
+          <a href="#" class="btn btn--danger" onclick="return false;">Conocé el proceso</a>
           <a href="#" class="btn btn--danger btn--xl" onclick="return false;">Inscribite</a>
         </div>
       </div>
@@ -267,6 +271,7 @@
           <span class="lib-code">.btn.btn--danger</span>
           <span class="lib-code">.btn.btn--ghost</span>
           <span class="lib-code">.btn.btn--ghost-light</span>
+          <span class="lib-code">.btn.btn--sm</span>
           <span class="lib-code">.btn.btn--xl</span>
         </div>
       </div>
@@ -277,36 +282,25 @@
       <div class="lib-section__head">
         <p class="eyebrow eyebrow--light">// 04</p>
         <h2 class="lib-section__title">Badges</h2>
-        <p class="lib-section__desc">Etiquetas cortas usadas para estados, niveles y descuentos.</p>
+        <p class="lib-section__desc">Etiquetas cortas usadas para estados, niveles y descuentos. Las variantes de precio y nivel usan <span class="lib-code">border-radius: var(--radius-btn)</span> (pill).</p>
       </div>
       <div class="lib-row">
         <span class="badge badge--danger">APORTÁ A LA CAUSA</span>
         <span class="badge badge--outline">NIVEL: INICIAL</span>
-        <span class="badge badge--success">20% OFF</span>
-      </div>
-    </section>
-
-    <!-- ///////////////// ELEMENTOS HUD ///////////////// -->
-    <section class="lib-section container" id="lib-hud">
-      <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 05</p>
-        <h2 class="lib-section__title">Elementos HUD</h2>
-        <p class="lib-section__desc">Detalles decorativos de "póster técnico": coordenadas y mira de retícula, usados sobre imágenes a pantalla completa.</p>
-      </div>
-      <div class="lib-hud-demo">
-        <span class="hud-item hud-item--tl">VOLCÁN DOMUYO<br />ALTURA: 4709M S.N.M.</span>
-        <span class="hud-item hud-item--tr">49.2707° S<br />73.0424° W</span>
-        <span class="hud-crosshair"></span>
+        <span class="badge badge--success" style="border-radius: var(--radius-btn);">20% OFF</span>
+        <span class="badge" style="background: var(--ink); color: var(--bone); border-radius: var(--radius-btn);">Nivel Inicial · 4 meses</span>
       </div>
     </section>
 
     <!-- ///////////////// TARJETAS ///////////////// -->
     <section class="lib-section container" id="lib-tarjetas">
       <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 06</p>
+        <p class="eyebrow eyebrow--light">// 05</p>
         <h2 class="lib-section__title">Tarjetas</h2>
         <p class="lib-section__desc">Distintos patrones de tarjeta usados en territorio, programas, reseñas y ficha técnica.</p>
       </div>
+
+      <div class="lib-tarjetas-grid">
 
       <div class="lib-block">
         <span class="lib-block__label">Terr-card (territorio)</span>
@@ -325,25 +319,27 @@
           <article class="plan-card plan-card--featured">
             <div class="plan-card__media">
               <div class="lib-mini-media"></div>
+              <span class="badge plan-card__featured-tag">PROGRAMA DESTACADO</span>
               <span class="badge badge--outline plan-card__level">Nivel Inicial · 4 meses</span>
             </div>
             <div class="plan-card__body">
-              <span class="badge badge--outline plan-card__featured-tag">PROGRAMA DESTACADO</span>
               <h3 class="plan-card__title">Fundamentos del Alpinismo</h3>
               <p class="plan-card__location">San Martín de los Andes, Neuquén</p>
               <div class="plan-card__price">
                 <span class="badge badge--success">20% OFF</span>
                 <span class="plan-card__old">$750.000 ARS</span>
-                <span class="plan-card__now">$500.000 ARS</span>
               </div>
-              <span class="btn btn--danger plan-card__cta">Inscribite</span>
+              <div class="plan-card__bottom">
+                <span class="plan-card__now">$500.000 ARS</span>
+                <span class="btn btn--danger btn--sm plan-card__cta">Inscribite</span>
+              </div>
             </div>
           </article>
         </div>
       </div>
 
       <div class="lib-block">
-        <span class="lib-block__label">Review-card (reseñas)</span>
+        <span class="lib-block__label">Review-card (reseñas · fondo blanco / outline bone-2)</span>
         <div class="lib-cards-grid">
           <article class="review-card">
             <span class="review-card__quote" aria-hidden="true">"</span>
@@ -358,6 +354,25 @@
       </div>
 
       <div class="lib-block">
+        <span class="lib-block__label">Team-card (quiénes te forman)</span>
+        <div class="lib-cards-grid">
+          <article class="team-card">
+            <div class="team-card__media"><div class="lib-mini-media"></div></div>
+            <h3 class="team-card__name">Martín Ibáñez</h3>
+            <span class="team-card__role">Guía de montaña · UIAGM</span>
+            <p class="team-card__bio">15 años guiando expediciones en Patagonia.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="lib-block">
+        <span class="lib-block__label">Course-gallery-item (galería, hover a color)</span>
+        <div class="lib-cards-grid">
+          <figure class="course-gallery__item" style="aspect-ratio: 4/3;"><div class="lib-mini-media" style="height: 100%;"></div></figure>
+        </div>
+      </div>
+
+      <div class="lib-block">
         <span class="lib-block__label">About-fact (etiquetas · Sobre nosotros)</span>
         <div class="about__facts" style="max-width: 420px;">
           <span class="about__fact">Oriundos de Bariloche</span>
@@ -366,92 +381,128 @@
       </div>
 
       <div class="lib-block">
-        <span class="lib-block__label">Spec-card (ficha técnica)</span>
-        <div class="spec__grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-          <div class="spec__card spec__card--a">
-            <span class="spec__key">Duración</span>
-            <span class="spec__val">5 <small>meses</small></span>
-            <span class="spec__note">Formación continua, no intensivo de fin de semana.</span>
-          </div>
-          <div class="spec__card spec__card--b">
-            <span class="spec__key">Fecha de inicio</span>
-            <span class="spec__val">04 <small>MAR</small></span>
-            <span class="spec__note">Cupos limitados. Selección por orden y aptitud.</span>
-          </div>
-          <div class="spec__card spec__card--c">
-            <span class="spec__key">Dificultad</span>
-            <span class="spec__val spec__val--sm">Exigente<br /><span class="tx-danger">/ Mental</span></span>
-            <span class="spec__note">El límite casi nunca es físico. Es de criterio.</span>
+        <span class="lib-block__label">About-stack (foto apilada · Sobre nosotros)</span>
+        <div class="about__stack" style="max-width: 320px;">
+          <span class="about__stack-card about__stack-card--1" aria-hidden="true"></span>
+          <span class="about__stack-card about__stack-card--2" aria-hidden="true"></span>
+          <figure class="about__media"><div class="lib-mini-media" style="height: 220px;"></div></figure>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+    <!-- ///////////////// BARRA DE STATS ///////////////// -->
+    <section class="lib-section container" id="lib-stats">
+      <div class="lib-section__head">
+        <p class="eyebrow eyebrow--light">// 06</p>
+        <h2 class="lib-section__title">Barra de stats</h2>
+        <p class="lib-section__desc">Franja de números con divisores cortos centrados, usada en Home y en la ficha técnica del curso.</p>
+      </div>
+      <div class="stats__bar">
+        <div class="stats__item">
+          <span class="stats__num">+10</span>
+          <span class="stats__label">Años de experiencia</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">2500</span>
+          <span class="stats__label">Profesionales capacitados</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">+170</span>
+          <span class="stats__label">Expediciones realizadas</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">+50</span>
+          <span class="stats__label">Rescates realizados</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ///////////////// ACORDEÓN / FAQ ///////////////// -->
+    <section class="lib-section container" id="lib-faq">
+      <div class="lib-section__head">
+        <p class="eyebrow eyebrow--light">// 07</p>
+        <h2 class="lib-section__title">Acordeón / FAQ</h2>
+        <p class="lib-section__desc">Se despliega con la técnica <span class="lib-code">grid-template-rows: 0fr → 1fr</span> (sin JS de medición de alturas). Clickeá para probarlo.</p>
+      </div>
+      <div class="faq-item" style="max-width: 520px;">
+        <button class="faq-item__q" type="button" aria-expanded="false">
+          <span class="faq-item__num">1/</span> ¿Necesito experiencia previa?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <p class="faq-item__a">No es obligatoria para los programas de nivel inicial: evaluamos tu condición física y arrancamos desde ahí.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ///////////////// STEPPER ///////////////// -->
-    <section class="lib-section container" id="lib-stepper">
+    <!-- ///////////////// BANNER MARQUEE ///////////////// -->
+    <section class="lib-section container" id="lib-banner">
       <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 07</p>
-        <h2 class="lib-section__title">Stepper</h2>
-        <p class="lib-section__desc">Indicador de etapas usado en la sección "¿Cómo te preparamos?".</p>
+        <p class="eyebrow eyebrow--light">// 08</p>
+        <h2 class="lib-section__title">Banner marquee</h2>
+        <p class="lib-section__desc">Franja de texto en loop infinito, fondo <span class="lib-code">--danger</span>, tipografía monoespaciada.</p>
       </div>
-      <div class="stepper" role="tablist" aria-label="Ejemplo de stepper" style="margin-top: 0;">
-        <button class="stepper__step is-active" type="button">1</button>
-        <button class="stepper__step" type="button">2</button>
-        <button class="stepper__step" type="button">3</button>
-        <button class="stepper__step" type="button">4</button>
-        <button class="stepper__step" type="button">5</button>
+      <div class="info-banner" style="border-radius: var(--radius-card);">
+        <div class="info-banner__track">
+          <span class="info-banner__text">Lo que tenés que saber</span>
+          <span class="info-banner__dot">·</span>
+          <span class="info-banner__text">Preguntas frecuentes</span>
+          <span class="info-banner__dot">·</span>
+          <span class="info-banner__text">Lo que tenés que saber</span>
+          <span class="info-banner__dot">·</span>
+          <span class="info-banner__text">Preguntas frecuentes</span>
+          <span class="info-banner__dot">·</span>
+        </div>
       </div>
     </section>
 
     <!-- ///////////////// MÓDULO DE PRECIO ///////////////// -->
     <section class="lib-section container" id="lib-precio">
       <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 08</p>
+        <p class="eyebrow eyebrow--light">// 09</p>
         <h2 class="lib-section__title">Módulo de precio</h2>
-        <p class="lib-section__desc">Bloque de conversión con precio anterior/actual y medios de pago, usado en la ficha del curso.</p>
+        <p class="lib-section__desc">Card de precio con badge de descuento, cuotas y precio final a la izquierda, checklist de beneficios y CTA a la derecha. Usado en la ficha del curso.</p>
       </div>
       <div class="price-card">
         <div class="price-card__left">
-          <span class="badge badge--success">20% OFF</span>
-          <h2 class="price-card__title">Inscripción abierta</h2>
-          <p class="price-card__note">Pago en pesos. Opciones en cuotas sin interés con tarjeta y transferencia.</p>
-          <ul class="price-card__pay" aria-label="Modos de pago">
-            <li>Transferencia</li>
-            <li>Tarjeta / cuotas</li>
-            <li>Reserva anticipada</li>
-          </ul>
+          <div class="price-card__top">
+            <span class="badge badge--success">20% OFF</span>
+            <span class="price-card__old">$625.000 ARS</span>
+          </div>
+          <p class="price-card__now">$500.000 <small>ARS</small></p>
+          <div class="price-card__installment">
+            <p class="price-card__installment-label">Hasta 6 cuotas sin interés de</p>
+            <p class="price-card__installment-amount">$83.334 <small>ARS</small></p>
+          </div>
+
+          <div class="price-card__pay">
+            <span class="price-card__pay-label">Medios de pago disponibles</span>
+            <ul class="price-card__pay-icons" aria-label="Medios de pago">
+              <li><img src="assets/img/visa.webp" alt="Visa" /></li>
+              <li><img src="assets/img/Master.webp" alt="Mastercard" /></li>
+              <li><img src="assets/img/Amex.svg" alt="Amex" /></li>
+            </ul>
+          </div>
         </div>
         <div class="price-card__right">
-          <span class="price-card__old">$750.000 ARS</span>
-          <span class="price-card__now">$500.000 <small>ARS</small></span>
-          <a href="#" class="btn btn--danger btn--xl price-card__cta" onclick="return false;">INSCRIBITE</a>
+          <ul class="price-card__features">
+            <li>Clases teóricas y prácticas con guías UIAGM.</li>
+            <li>Acompañamiento real en la preparación física.</li>
+            <li>Salida de expedición final incluida.</li>
+            <li>Certificación oficial Cúspides al finalizar.</li>
+            <li>Acceso a la comunidad de egresados.</li>
+          </ul>
+          <a href="#" class="btn btn--danger price-card__cta" onclick="return false;">Inscribite al curso</a>
           <span class="price-card__fine">Cupos limitados · Selección por aptitud</span>
         </div>
       </div>
     </section>
 
-    <!-- ///////////////// NAVEGACIÓN ///////////////// -->
-    <section class="lib-section container" id="lib-nav">
-      <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 09</p>
-        <h2 class="lib-section__title">Navegación</h2>
-        <p class="lib-section__desc">Enlaces de menú y CTA de navegación, tal como aparecen en el header fijo.</p>
-      </div>
-      <div class="lib-row" style="background: var(--ink-2); border: 1px solid var(--hair-light); border-radius: var(--radius-card); padding: 1.4rem 1.8rem;">
-        <a href="#" class="nav-link" onclick="return false;">Territorio</a>
-        <a href="#" class="nav-link" onclick="return false;">Método</a>
-        <a href="#" class="nav-cta" onclick="return false;">Inscribite</a>
-      </div>
-    </section>
-
-    <!-- ///////////////// FOOTER (referencia) ///////////////// -->
-    <section class="lib-section container" id="lib-footer">
-      <div class="lib-section__head">
-        <p class="eyebrow eyebrow--light">// 10</p>
-        <h2 class="lib-section__title">Footer</h2>
-        <p class="lib-section__desc">El footer global del sitio se ve reproducido al final de esta misma página.</p>
-      </div>
-    </section>
+  
 
   </main>
 
@@ -463,18 +514,41 @@
       <div class="site-footer__brand">
         <span class="brand__word">CÚSPIDES</span>
         <p>Formación en montañismo y andinismo extremo.<br />Patagonia — 49.2707°S / 73.0424°W</p>
+        <a href="index.html#hero" class="btn btn--ghost-light footer-back">Volver al inicio ↑</a>
       </div>
-      <nav class="site-footer__nav" aria-label="Pie de página">
-        <a href="index.html#territorio">Territorio</a>
-        <a href="index.html#metodo">Método</a>
-        <a href="index.html#programas">Programas</a>
-        <a href="index.html#causa">Seguridad</a>
-        <a href="biblioteca.html">Biblioteca</a>
+
+      <nav class="site-footer__col" aria-label="Pie de página">
+        <h3 class="site-footer__heading">Secciones</h3>
+        <div class="site-footer__nav">
+          <a href="index.html#territorio">Territorio</a>
+          <a href="index.html#metodo">Método</a>
+          <a href="index.html#programas">Programas</a>
+          <a href="index.html#causa">Seguridad</a>
+          <a href="biblioteca.html">Biblioteca</a>
+        </div>
       </nav>
-      <div class="site-footer__meta">
-        <span>© MMXXVI · Todos los derechos reservados</span>
-        <span>El terreno no negocia. Nosotros tampoco.</span>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__heading">Contacto</h3>
+        <p class="site-footer__contact">cuspides@info.com.ar</p>
+        <p class="site-footer__contact">+54 9 11 3787-3456</p>
+        <p class="site-footer__contact">Patagonia, Argentina</p>
+        <p class="site-footer__contact">49.2707°S // 73.0424°W</p>
       </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__heading">Ubicación</h3>
+        <div class="footer-map" aria-hidden="true">
+          <span class="footer-map__pin"></span>
+          <span class="footer-map__chip">Cúspides</span>
+        </div>
+        <span class="footer-map__link">Ver ubicación ↗</span>
+      </div>
+    </div>
+
+    <div class="container site-footer__meta">
+      <span>© MMXXVI · Todos los derechos reservados</span>
+      <span>El terreno no negocia. Nosotros tampoco.</span>
     </div>
   </footer>
 
@@ -511,11 +585,12 @@
         });
       }
 
-      var stepperSteps = document.querySelectorAll('#lib-stepper .stepper__step');
-      stepperSteps.forEach(function (btn, i) {
+      document.querySelectorAll('.faq-item__q').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          stepperSteps.forEach(function (b) { b.classList.remove('is-active'); });
-          btn.classList.add('is-active');
+          var item = btn.closest('.faq-item');
+          var willOpen = !item.classList.contains('is-open');
+          item.classList.toggle('is-open', willOpen);
+          btn.setAttribute('aria-expanded', String(willOpen));
         });
       });
     })();

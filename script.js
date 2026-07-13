@@ -103,6 +103,41 @@
   }
 
   /* ---------------------------------------------------------------------- */
+  /* 3b. MANIFIESTO: el texto se "escribe" (palabra a palabra) al scrollear */
+  /* ---------------------------------------------------------------------- */
+  const manifestSection = document.querySelector('.manifest');
+  if (manifestSection) {
+    const manifestWords = manifestSection.querySelectorAll('.manifest__word');
+
+    if (REDUCED_MOTION) {
+      manifestWords.forEach((w) => w.classList.add('is-active'));
+    } else {
+      let manifestTicking = false;
+
+      function updateManifest() {
+        const rect = manifestSection.getBoundingClientRect();
+        const scrollable = manifestSection.offsetHeight - window.innerHeight;
+        const progress = scrollable > 0
+          ? Math.min(1, Math.max(0, -rect.top / scrollable))
+          : 1;
+        const activeCount = Math.round(progress * manifestWords.length);
+
+        manifestWords.forEach((w, i) => w.classList.toggle('is-active', i < activeCount));
+        manifestTicking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!manifestTicking) {
+          requestAnimationFrame(updateManifest);
+          manifestTicking = true;
+        }
+      }, { passive: true });
+
+      updateManifest();
+    }
+  }
+
+  /* ---------------------------------------------------------------------- */
   /* 4. CONTADORES ANIMADOS (barra de stats)                                */
   /* ---------------------------------------------------------------------- */
   function animateCount(el) {
@@ -131,41 +166,46 @@
   document.querySelectorAll('.stats__num[data-count]').forEach((el) => countObserver.observe(el));
 
   /* ---------------------------------------------------------------------- */
-  /* 4b. ACCORDION "¿CÓMO TE PREPARAMOS?" (sección #metodo)                 */
-  /*     Las etapas cambian solas a medida que se scrollea la sección;      */
-  /*     cada panel del accordion sigue siendo clickeable.                  */
+  /* 4b. ACCORDIONS DE IMÁGENES (Home "¿Cómo te preparamos?" y Detalle       */
+  /*     "Proceso de formación"). Cada instancia se maneja de forma          */
+  /*     independiente para que no se crucen entre sí. Solo la que está      */
+  /*     dentro de #method-scroll avanza sola al scrollear.                  */
   /* ---------------------------------------------------------------------- */
-  const accordionItems = document.querySelectorAll('.accordion__item');
   const methodScroll = document.getElementById('method-scroll');
 
-  function activateStep(target) {
-    accordionItems.forEach((item) => {
-      const isActive = item.dataset.step === target;
-      item.classList.toggle('is-active', isActive);
-      item.setAttribute('aria-selected', String(isActive));
-    });
-  }
+  document.querySelectorAll('.accordion').forEach((accordion) => {
+    const items = accordion.querySelectorAll('.accordion__item');
+    if (!items.length) return;
 
-  accordionItems.forEach((item) => {
-    item.addEventListener('click', () => activateStep(item.dataset.step));
-  });
-
-  if (methodScroll && accordionItems.length) {
-    const totalSteps = accordionItems.length;
-
-    function onMethodScroll() {
-      const rect = methodScroll.getBoundingClientRect();
-      const scrollable = rect.height - window.innerHeight;
-      if (scrollable <= 0) return;
-
-      const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-      const step = Math.min(totalSteps, Math.floor(progress * totalSteps) + 1);
-      activateStep(String(step));
+    function activateStep(target) {
+      items.forEach((item) => {
+        const isActive = item.dataset.step === target;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', String(isActive));
+      });
     }
 
-    window.addEventListener('scroll', onMethodScroll, { passive: true });
-    onMethodScroll();
-  }
+    items.forEach((item) => {
+      item.addEventListener('click', () => activateStep(item.dataset.step));
+    });
+
+    if (methodScroll && methodScroll.contains(accordion)) {
+      const totalSteps = items.length;
+
+      function onMethodScroll() {
+        const rect = methodScroll.getBoundingClientRect();
+        const scrollable = rect.height - window.innerHeight;
+        if (scrollable <= 0) return;
+
+        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        const step = Math.min(totalSteps, Math.floor(progress * totalSteps) + 1);
+        activateStep(String(step));
+      }
+
+      window.addEventListener('scroll', onMethodScroll, { passive: true });
+      onMethodScroll();
+    }
+  });
 
   /* ---------------------------------------------------------------------- */
   /* 4c. SLIDER COMPARATIVO "ANTES Y DESPUÉS" (sección #comparacion)        */
@@ -180,6 +220,18 @@
   }
 
   /* ---------------------------------------------------------------------- */
+  /* 4c-2. ACORDEÓN "PREGUNTAS FRECUENTES" (animación suave con grid-rows)   */
+  /* ---------------------------------------------------------------------- */
+  document.querySelectorAll('.faq-item__q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const willOpen = !item.classList.contains('is-open');
+      item.classList.toggle('is-open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
+  /* ---------------------------------------------------------------------- */
   /* 4d. PUNTERO DE MOUSE PERSONALIZADO (círculo azul)                       */
   /* ---------------------------------------------------------------------- */
   const cursorDot = document.getElementById('cursor-dot');
@@ -189,6 +241,33 @@
       cursorDot.classList.add('is-active');
     });
     document.addEventListener('mouseleave', () => cursorDot.classList.remove('is-active'));
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 4e. PARALLAX DE TODA LA SECCIÓN HERO (viewport + "hombre-hero")        */
+  /* ---------------------------------------------------------------------- */
+  const heroSection  = document.getElementById('hero');
+  const heroViewport = document.querySelector('.hero__viewport');
+  const heroFigure   = document.querySelector('.hero__figure');
+
+  if (heroSection && heroViewport && !REDUCED_MOTION) {
+    let heroTicking = false;
+
+    function onHeroParallax() {
+      const top = heroSection.getBoundingClientRect().top;
+      heroViewport.style.transform = `translate3d(0, ${Math.round(top * -0.2)}px, 0)`;
+      if (heroFigure) heroFigure.style.transform = `translate3d(0, ${Math.round(top * -0.35)}px, 0)`;
+      heroTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!heroTicking) {
+        requestAnimationFrame(onHeroParallax);
+        heroTicking = true;
+      }
+    }, { passive: true });
+
+    onHeroParallax();
   }
 
   /* ---------------------------------------------------------------------- */

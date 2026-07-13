@@ -24,9 +24,6 @@
 </head>
 
 <body>
-  <!-- Malla de retícula técnica que atraviesa todo el sitio (decorativa) -->
-  <div class="grid-overlay" aria-hidden="true"></div>
-
   <!-- Barra de progreso de scroll (acento técnico) -->
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
@@ -71,8 +68,10 @@
 
     <!-- ///////////////// SECCIÓN 1 · HERO ///////////////// -->
     <section class="hero" id="hero">
+     <div class="hero__viewport">
       <div class="hero__media" aria-hidden="true">
-        <img class="hero__img" src="assets/img/heroo.png" alt="Escalador ascendiendo una pared de hielo en la Patagonia" />
+        <img class="hero__img hero__bg" src="assets/img/fondo-hero.png" alt="" />
+        <img class="hero__img hero__figure" src="assets/img/hombre-hero.png" alt="Escalador ascendiendo una pared de hielo en la Patagonia" />
       </div>
 
       <!-- Nieve cayendo (decorativa) -->
@@ -93,44 +92,90 @@
 
       <div class="hero__content container">
         <h1 class="hero__title">
-          LA CIMA<br />
-          NO ES PARA<br />
-          CUALQUIERA
+          LA CIMA ES SOLO<br />
+          PARA VALIENTES
         </h1>
         <p class="hero__sub">
           La montaña exige preparación, criterio y respeto.
-          Nosotros te ayudamos a desarrollarlo.
+          Nosotros te ayudamos a desarrollarlo para que llegues a la cima.
         </p>
         <div class="hero__cta">
           <a href="#metodo" class="btn btn--danger">Conocé el proceso</a>
         </div>
       </div>
 
+      <!-- ///////////////// BANNER · CARRUSEL DE IMÁGENES EN LOOP ///////////////// -->
+      <div class="logo-marquee" aria-hidden="true">
+        <div class="logo-marquee__track">
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo1.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo2.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo3.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo4.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo5.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo6.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo1.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo2.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo3.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo4.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo5.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo6.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo1.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo2.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo3.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo4.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo5.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo6.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo1.svg" alt="" />
+          <img class="logo-marquee__img logo-marquee__img--sm" src="assets/img/logo2.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo3.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo4.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo5.svg" alt="" />
+          <img class="logo-marquee__img" src="assets/img/logo6.svg" alt="" />
+        </div>
+      </div>
+     </div>
+
+      <!-- ///////////////// NUBES (TRANSICIÓN) ///////////////// -->
+      <div class="clouds">
+        <img class="clouds__img" src="assets/img/nubes-hero.png" alt="" aria-hidden="true" />
+      </div>
+
     </section>
 
-    <!-- ///////////////// BANNER · CARRUSEL DE IMÁGENES EN LOOP ///////////////// -->
-    <section class="logo-marquee" aria-hidden="true">
-      <div class="logo-marquee__track">
-        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-14.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-15.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-16.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-17.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-18.png" alt="" />
-        <img class="logo-marquee__img" src="assets/img/logos-19.png" alt="" />
+     <!-- ///////////////// SECCIÓN 5b · MANIFIESTO ///////////////// -->
+    <section class="manifest" id="manifiesto">
+      <div class="manifest__inner">
+        <div class="container">
+          <p class="eyebrow eyebrow--light" style="text-align: center;">// Nuestro punto</p>
+          <p class="manifest__text" id="manifest-text">
+            <span class="manifest__word">No</span>
+            <span class="manifest__word">enseñamos</span>
+            <span class="manifest__word">a</span>
+            <span class="manifest__word">“conquistar</span>
+            <span class="manifest__word">cumbres”,</span>
+            <span class="manifest__word manifest__word--hl">Enseñamos</span>
+            <span class="manifest__word manifest__word--hl">a</span>
+            <span class="manifest__word manifest__word--hl">sobrevivir</span>
+            <span class="manifest__word">con</span>
+            <span class="manifest__word">criterio</span>
+            <span class="manifest__word">y</span>
+            <span class="manifest__word">a</span>
+            <span class="manifest__word">volver.</span>
+            <span class="manifest__word">Las</span>
+            <span class="manifest__word">alturas</span>
+            <span class="manifest__word">de</span>
+            <span class="manifest__word">la</span>
+            <span class="manifest__word">Patagonia</span>
+            <span class="manifest__word">no</span>
+            <span class="manifest__word">perdonan.</span>
+          </p>
+        </div>
       </div>
     </section>
+
+    <!-- ///////////////// TERRITORIO + SOBRE NOSOTROS: imagen de fondo compartida ///////////////// -->
+    <div class="topo-bridge">
+      <img class="topo-bridge__img" src="assets/img/topo.png" alt="" aria-hidden="true" />
 
     <!-- ///////////////// SECCIÓN 2 · TERRITORIO (CARRUSEL) ///////////////// -->
     <section class="territorio" id="territorio">
@@ -201,9 +246,36 @@
       </div>
     </section>
 
+    <!-- ///////////////// SECCIÓN 4 · SOBRE NOSOTROS ///////////////// -->
+    <section class="about" id="nosotros">
+      <div class="container about__grid">
+        <div class="about__text reveal">
+          <p class="eyebrow eyebrow--light">Nuestras raíces</p>
+          <h2 class="section-title section-title--light">Sobre nosotros</h2>
+          <p class="about__copy">
+            Cúspides nace de un grupo de andinistas con la visión de que las
+            grandes expediciones requieren más que motivación. Te formamos, entrenamos
+             y acompañamos profesionalmente para poder
+            progresar de manera segura y consciente.
+          </p>
+          <div class="about__facts">
+            <span class="about__fact">Fundado en 2016</span>
+            <span class="about__fact">Certificados por la FAA</span>
+          </div>
+        </div>
+        <div class="about__stack">
+          <span class="about__stack-card about__stack-card--1" aria-hidden="true"></span>
+          <span class="about__stack-card about__stack-card--2" aria-hidden="true"></span>
+          <figure class="about__media reveal">
+            <img src="assets/img/nosotros.png" alt="Los tres fundadores de Cúspides en la montaña" />
+          </figure>
+        </div>
+      </div>
+    </section>
+    </div>
+
     <!-- ///////////////// SECCIÓN 3 · STATS ///////////////// -->
     <section class="stats" id="stats">
-      <div class="container">
         <div class="stats__bar">
           <div class="stats__item reveal">
             <span class="stats__num" data-count="10" data-prefix="+">+10</span>
@@ -222,49 +294,6 @@
             <span class="stats__label">Rescates realizados</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ///////////////// SECCIÓN 4 · SOBRE NOSOTROS ///////////////// -->
-    <section class="about" id="nosotros">
-      <div class="container about__grid">
-        <div class="about__text reveal">
-          <p class="eyebrow eyebrow--light">Nuestras raíces</p>
-          <h2 class="section-title section-title--light">Sobre nosotros</h2>
-          <p class="about__copy">
-            Cúspides nace de un grupo de amigos andinistas con la convicción de que las
-            grandes expediciones requieren algo más que motivación. Combinamos
-            formación, entrenamiento y acompañamiento profesional para poder
-            progresar de manera segura y consciente.
-          </p>
-          <div class="about__facts">
-            <span class="about__fact">Oriundos de Bariloche</span>
-            <span class="about__fact">Fundado en 2016</span>
-            <span class="about__fact">Andinistas profesionales</span>
-            <span class="about__fact">Certificados por la FAA</span>
-          </div>
-        </div>
-        <figure class="about__media reveal">
-          <img src="assets/img/nosotros.png" alt="Los tres fundadores de Cúspides en la montaña" />
-        </figure>
-      </div>
-    </section>
-
-  <!-- ///////////////// SECCIÓN 5 · APORTÁ A LA CAUSA ///////////////// -->
-    <section class="cause" id="causa">
-      <span class="giant-banner__text giant-banner__text--inline" aria-hidden="true">Primeros auxilios</span>
-      <div class="container cause__grid">
-        <div class="cause__card reveal">
-          <div class="cause__media"><img src="assets/img/foto-rescate.png" alt="Rescatista en una pared de roca" /></div>
-          <span class="badge badge--danger cause__badge">APORTÁ A LA CAUSA</span>
-          <h3 class="cause__card-title">Sumate a nuestro círculo <br> de rescatistas argentinos</h3>
-          <a href="#" class="cause__link">Conocé más ↗</a>
-        </div>
-        <div class="cause__text reveal">
-          <p class="eyebrow eyebrow--light">Certificados por la federación andinistas argentinos</p>
-          <h2 class="section-title section-title--light">Certificate y accedé a la posibilidad de ayudar</h2>
-        </div>
-      </div>
     </section>
 
     <!-- ///////////////// SECCIÓN 6 · ¿CÓMO TE PREPARAMOS? (ACCORDION SLIDER) ///////////////// -->
@@ -272,57 +301,47 @@
       <div class="container">
         <div class="method__scroll" id="method-scroll">
           <div class="method__sticky">
-            <p class="eyebrow reveal">/02 — Nuestra metodología</p>
-            <h2 class="section-title section-title--light section-title--center reveal">¿Cómo te preparamos?</h2>
+            <p class="eyebrow eyebrow--light reveal">/02 — Nuestra metodología</p>
+            <h2 class="section-title section-title--center reveal">¿Cómo te preparamos?</h2>
             <p class="method__sub reveal">Dividimos nuestra preparación por etapas</p>
 
             <div class="accordion reveal" role="tablist" aria-label="Etapas de preparación">
               <button class="accordion__item is-active" type="button" data-step="1" role="tab" aria-selected="true">
-                <img class="accordion__img" src="assets/img/preparacion.png" alt="Evaluación física en muro de escalada" />
-                <span class="accordion__overlay" aria-hidden="true"></span>
-                <span class="accordion__num">01</span>
-                <span class="accordion__content">
-                  <span class="accordion__title">Evaluación inicial</span>
-                  <span class="accordion__desc">Antes de definir un objetivo, analizamos experiencia previa, condición física y expectativas. Diagnóstico físico, técnico y psicológico inicial.</span>
-                </span>
-              </button>
-
-              <button class="accordion__item" type="button" data-step="2" role="tab" aria-selected="false">
                 <img class="accordion__img" src="assets/img/etapa2.png" alt="Entrenamiento con carga" />
                 <span class="accordion__overlay" aria-hidden="true"></span>
-                <span class="accordion__num">02</span>
+                <span class="accordion__num">01</span>
+                <span class="accordion__title">Preparación física</span>
                 <span class="accordion__content">
-                  <span class="accordion__title">Preparación física</span>
                   <span class="accordion__desc">Acondicionamiento específico para carga, altura y frío sostenido. El cuerpo como herramienta.</span>
                 </span>
               </button>
 
-              <button class="accordion__item" type="button" data-step="3" role="tab" aria-selected="false">
+              <button class="accordion__item" type="button" data-step="2" role="tab" aria-selected="false">
                 <img class="accordion__img" src="assets/img/etapa4.png" alt="Maniobras de cuerda" />
                 <span class="accordion__overlay" aria-hidden="true"></span>
-                <span class="accordion__num">03</span>
+                <span class="accordion__num">02</span>
+                <span class="accordion__title">Formación técnica</span>
                 <span class="accordion__content">
-                  <span class="accordion__title">Formación técnica</span>
                   <span class="accordion__desc">Cuerdas, anclajes, progresión en hielo y roca, navegación. El criterio antes que el reflejo.</span>
                 </span>
               </button>
 
-              <button class="accordion__item" type="button" data-step="4" role="tab" aria-selected="false">
-                <img class="accordion__img" src="assets/img/etapa3.png" alt="Práctica en terreno real" />
+              <button class="accordion__item" type="button" data-step="3" role="tab" aria-selected="false">
+                <img class="accordion__img" src="assets/img/etapa3.webp" alt="Práctica en terreno real" />
                 <span class="accordion__overlay" aria-hidden="true"></span>
-                <span class="accordion__num">04</span>
+                <span class="accordion__num">03</span>
+                <span class="accordion__title">Prácticas</span>
                 <span class="accordion__content">
-                  <span class="accordion__title">Prácticas</span>
                   <span class="accordion__desc">Terreno real, condiciones reales. Errores controlados donde el margen todavía existe.</span>
                 </span>
               </button>
 
-              <button class="accordion__item" type="button" data-step="5" role="tab" aria-selected="false">
+              <button class="accordion__item" type="button" data-step="4" role="tab" aria-selected="false">
                 <img class="accordion__img" src="assets/img/etapa5.png" alt="Cumbre de expedición" />
                 <span class="accordion__overlay" aria-hidden="true"></span>
-                <span class="accordion__num">05</span>
+                <span class="accordion__num">04</span>
+                <span class="accordion__title">Expedición</span>
                 <span class="accordion__content">
-                  <span class="accordion__title">Expedición</span>
                   <span class="accordion__desc">El ascenso deja de ser meta y pasa a ser consecuencia de todo lo anterior.</span>
                 </span>
               </button>
@@ -332,32 +351,12 @@
       </div>
     </section>
 
-    <!-- ///////////////// SECCIÓN 6b · ANTES Y DESPUÉS (SLIDER COMPARATIVO) ///////////////// -->
-    <section class="compare" id="comparacion">
-      <div class="container">
-        <p class="eyebrow eyebrow--light reveal">/La transformación</p>
-        <h2 class="section-title section-title--light section-title--center reveal">Del muro de entrenamiento a la montaña real</h2>
-        <p class="compare__sub reveal">Deslizá para ver el camino que recorrés con nosotros</p>
-
-        <div class="compare-slider reveal" id="compare-slider">
-          <img class="compare-slider__img compare-slider__img--before" src="assets/img/antes.png" alt="Entrenamiento en el muro de escalada" />
-          <img class="compare-slider__img compare-slider__img--after" src="assets/img/despue.png" alt="Ascenso real en la montaña" />
-          <span class="badge compare-slider__tag compare-slider__tag--before">PRÁCTICA</span>
-          <span class="badge compare-slider__tag compare-slider__tag--after">REALIDAD</span>
-          <div class="compare-slider__divider" aria-hidden="true">
-            <span class="compare-slider__handle">↔</span>
-          </div>
-          <input type="range" min="0" max="100" value="50" class="compare-slider__range" id="compare-range" aria-label="Deslizá para comparar el antes y el después de la preparación" />
-        </div>
-      </div>
-    </section>
-
     <!-- ///////////////// SECCIÓN 7 · CITA ///////////////// -->
     <section class="quote" id="cita">
       <div class="quote__media" aria-hidden="true">
         <video src="assets/video/Video-fondo_1.mp4" autoplay muted loop playsinline></video>
       </div>
-      <blockquote class="quote__content container">
+      <blockquote class="quote__content container reveal">
         <p class="quote__text">"No es la montaña la que conquistamos,<br />sino a nosotros mismos."</p>
         <cite class="quote__author">—Edmund Hillary</cite>
       </blockquote>
@@ -368,49 +367,53 @@
       <div class="container">
         <div class="programs__head">
           <p class="eyebrow eyebrow--light reveal">/03 — Programas para cada objetivo</p>
-          <h2 class="section-title section-title--center reveal">Desafiate y enfrentá la cima</h2>
-          <p class="programs__sub reveal">Programas de preparación personalizados para tu objetivo</p>
+          <h2 class="section-title section-title--center reveal">Desafiate y<br class="mobile-break" /> enfrentá la cima</h2>
+          <p class="programs__sub reveal">Programas de preparación personalizados<br class="mobile-break" /> para tu objetivo</p>
         </div>
 
         <div class="plans-grid">
+          <article class="plan-card reveal" data-open-course="true" tabindex="0" role="button" aria-label="Abrir detalle: Alta Montaña, Hielo y Logística de Invernada">
+            <div class="plan-card__media">
+              <img src="assets/img/curso-1.png" alt="Logística en hielo y Nieve" />
+              <span class="badge badge--outline plan-card__level">Nivel Avanzado · 8 meses</span>
+            </div>
+            <div class="plan-card__body">
+              <h3 class="plan-card__title">Logística en hielo y Nieve</h3>
+              <p class="plan-card__location">Patagonia · Santa Cruz</p>
+              <div class="plan-card__price">
+                <span class="badge badge--success">20% OFF</span>
+                <span class="plan-card__old">$920.000 ARS</span>
+              </div>
+              <div class="plan-card__bottom">
+                <span class="plan-card__now">$750.000 ARS</span>
+                <span class="btn btn--danger btn--sm plan-card__cta">Inscribite</span>
+              </div>
+            </div>
+          </article>
+
           <article class="plan-card plan-card--featured reveal" data-open-course="true" tabindex="0" role="button" aria-label="Abrir detalle: Fundamentos del Alpinismo">
             <div class="plan-card__media">
-              <img src="assets/img/andinista-en-altura.png" alt="Fundamentos del Alpinismo" />
+              <img src="assets/img/hero-detalle.jpg" alt="Fundamentos del Alpinismo" />
+              <span class="badge plan-card__featured-tag">PROGRAMA DESTACADO</span>
               <span class="badge badge--outline plan-card__level">Nivel Inicial · 4 meses</span>
             </div>
             <div class="plan-card__body">
-              <span class="badge badge--outline plan-card__featured-tag">PROGRAMA DESTACADO</span>
               <h3 class="plan-card__title">Fundamentos del Alpinismo</h3>
               <p class="plan-card__location">San Martín de los Andes, Neuquén</p>
               <div class="plan-card__price">
                 <span class="badge badge--success">20% OFF</span>
                 <span class="plan-card__old">$750.000 ARS</span>
+              </div>
+              <div class="plan-card__bottom">
                 <span class="plan-card__now">$500.000 ARS</span>
+                <span class="btn btn--danger btn--sm plan-card__cta">Inscribite</span>
               </div>
-              <span class="btn btn--danger plan-card__cta">Inscribite</span>
-            </div>
-          </article>
-
-          <article class="plan-card reveal" data-open-course="true" tabindex="0" role="button" aria-label="Abrir detalle: Alta Montaña, Hielo y Logística de Invernada">
-            <div class="plan-card__media">
-              <img src="assets/img/andinista-subiendo.png" alt="Alta Montaña, Hielo y Logística de Invernada" />
-              <span class="badge badge--outline plan-card__level">Nivel Avanzado · 8 meses</span>
-            </div>
-            <div class="plan-card__body">
-              <h3 class="plan-card__title">Alta Montaña, Hielo y Logística de Invernada</h3>
-              <p class="plan-card__location">Patagonia · Santa Cruz</p>
-              <div class="plan-card__price">
-                <span class="badge badge--success">20% OFF</span>
-                <span class="plan-card__old">$920.000 ARS</span>
-                <span class="plan-card__now">$690.000 ARS</span>
-              </div>
-              <span class="btn btn--danger plan-card__cta">Inscribite</span>
             </div>
           </article>
 
           <article class="plan-card reveal" data-open-course="true" tabindex="0" role="button" aria-label="Abrir detalle: Escalada en Roca Técnica">
             <div class="plan-card__media">
-              <img src="assets/img/foto-card1.png" alt="Escalada en Roca Técnica" />
+              <img src="assets/img/curso2.png" alt="Escalada en Roca Técnica" />
               <span class="badge badge--outline plan-card__level">Nivel Intermedio · 6 meses</span>
             </div>
             <div class="plan-card__body">
@@ -418,51 +421,311 @@
               <p class="plan-card__location">Bariloche, Río Negro</p>
               <div class="plan-card__price">
                 <span class="badge badge--success">20% OFF</span>
-                <span class="plan-card__old">$680.000 ARS</span>
-                <span class="plan-card__now">$450.000 ARS</span>
+                <span class="plan-card__old">$780.000 ARS</span>
               </div>
-              <span class="btn btn--danger plan-card__cta">Inscribite</span>
+              <div class="plan-card__bottom">
+                <span class="plan-card__now">$650.000 ARS</span>
+                <span class="btn btn--danger btn--sm plan-card__cta">Inscribite</span>
+              </div>
             </div>
           </article>
         </div>
       </div>
+
+      <!-- ///////////////// RESEÑAS: 2 filas en loop infinito, direcciones opuestas ///////////////// -->
+      <div class="reviews" id="resenas">
+        <div class="container">
+          <h2 class="section-title section-title--center reviews__heading reveal">Leelo de Quienes ya se animaron</h2>
+        </div>
+
+        <div class="reviews__row" aria-hidden="true">
+          <div class="reviews__track">
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de prepararme</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de pensar</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de pensar</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="reviews__row" aria-hidden="true">
+          <div class="reviews__track reviews__track--right">
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de pensar</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de pensar</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
+              <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">LF</span>
+                <span class="review-card__name">Lucía F.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Profesionalismo al 100%</h3>
+              <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">TR</span>
+                <span class="review-card__name">Tomás R.</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-card__quote" aria-hidden="true">“</span>
+              <h3 class="review-card__title">Cambió mi forma de pensar</h3>
+              <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza.</p>
+              <div class="review-card__author">
+                <span class="review-card__avatar" aria-hidden="true">MG</span>
+                <span class="review-card__name">María G.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ///////////////// SECCIÓN 9 · RESEÑAS ///////////////// -->
-    <section class="reviews" id="resenas">
-      <div class="container reviews__grid">
-        <h2 class="section-title section-title--light reviews__heading reveal">Leelo de Quienes ya se animaron</h2>
+    <!-- ///////////////// BANNER · LO QUE TENÉS QUE SABER (marquee) ///////////////// -->
+    <section class="info-banner" aria-hidden="true">
+      <div class="info-banner__track">
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Lo que tenés que saber</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Preguntas frecuentes</span>
+        <span class="info-banner__dot">·</span>
+      </div>
+    </section>
 
-        <div class="reviews__track">
-          <article class="review-card reveal">
-            <span class="review-card__quote" aria-hidden="true">“</span>
-            <h3 class="review-card__title">Cambió mi forma de prepararme</h3>
-            <p class="review-card__text">Llegué pensando que estaba en forma y salí entendiendo que la preparación real empieza en la cabeza. El equipo no afloja en nada.</p>
-            <div class="review-card__author">
-              <span class="review-card__avatar" aria-hidden="true">MG</span>
-              <span class="review-card__name">María G.</span>
+    <!-- ///////////////// SECCIÓN 6b · PREGUNTAS FRECUENTES ///////////////// -->
+    <section class="faq" id="preguntas-frecuentes">
+      <div class="container faq__grid">
+        <div class="faq__stack reveal">
+          <span class="about__stack-card about__stack-card--1" aria-hidden="true"></span>
+          <span class="about__stack-card about__stack-card--2" aria-hidden="true"></span>
+          <div class="compare-slider" id="compare-slider">
+            <img class="compare-slider__img compare-slider__img--before" src="assets/img/antes.png" alt="Entrenamiento en el muro de escalada" />
+            <img class="compare-slider__img compare-slider__img--after" src="assets/img/despue.png" alt="Ascenso real en la montaña" />
+            <span class="badge compare-slider__tag compare-slider__tag--before">PRÁCTICA</span>
+            <span class="badge compare-slider__tag compare-slider__tag--after">REALIDAD</span>
+            <div class="compare-slider__divider" aria-hidden="true">
+              <span class="compare-slider__handle">↔</span>
             </div>
-          </article>
+            <input type="range" min="0" max="100" value="50" class="compare-slider__range" id="compare-range" aria-label="Deslizá para comparar el antes y el después de la preparación" />
+          </div>
+        </div>
 
-          <article class="review-card reveal">
-            <span class="review-card__quote" aria-hidden="true">“</span>
-            <h3 class="review-card__title">Profesionalismo de punta a punta</h3>
-            <p class="review-card__text">Desde la evaluación inicial hasta la expedición final sentí que cada etapa tenía un propósito. Nada improvisado.</p>
-            <div class="review-card__author">
-              <span class="review-card__avatar" aria-hidden="true">TR</span>
-              <span class="review-card__name">Tomás R.</span>
+        <div class="faq__content reveal">
+          <p class="eyebrow eyebrow--light">/04 — Lo que tenés que saber antes</p>
+          <h2 class="section-title section-title--light">Preguntas frecuentes</h2>
+          <div class="faq__list">
+            <div class="faq-item">
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__num">1/</span> ¿Necesito experiencia previa?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__a">No es obligatoria para los programas de nivel inicial: evaluamos tu condición física y arrancamos desde ahí. Para los niveles avanzados sí pedimos experiencia certificada.</p>
+                </div>
+              </div>
             </div>
-          </article>
+            <div class="faq-item">
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__num">2/</span> ¿Qué pasa si el clima no acompaña?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__a">Las salidas a terreno tienen fechas alternativas planificadas. La seguridad del grupo siempre está por encima del cronograma.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__num">3/</span> ¿Qué equipo tengo que llevar?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__a">Te enviamos un checklist detallado al inscribirte. El equipo técnico grupal (cuerdas, comunicación, etc.) lo provee Cúspides.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__num">4/</span> ¿Hay reembolso si no puedo asistir?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                <div class="faq-item__panel-inner">
+                  <p class="faq-item__a">Sí, con cancelación hasta 15 días antes del inicio. Después de esa fecha, la reserva se puede transferir a otra fecha disponible.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <article class="review-card reveal">
-            <span class="review-card__quote" aria-hidden="true">“</span>
-            <h3 class="review-card__title">Volvería a hacerlo mil veces</h3>
-            <p class="review-card__text">La Patagonia te pone a prueba, pero con esta preparación llegás con criterio, no con miedo.</p>
-            <div class="review-card__author">
-              <span class="review-card__avatar" aria-hidden="true">LF</span>
-              <span class="review-card__name">Lucía F.</span>
-            </div>
-          </article>
+    <!-- ///////////////// SECCIÓN 5 · APORTÁ A LA CAUSA ///////////////// -->
+    <section class="cause" id="causa">
+      <span class="giant-banner__text giant-banner__text--inline" aria-hidden="true">Primeros auxilios</span>
+      <div class="container cause__grid">
+        <div class="cause__card reveal">
+          <div class="cause__media"><img src="assets/img/foto-rescate.png" alt="Rescatista en una pared de roca" /></div>
+          <span class="badge badge--danger cause__badge">APORTÁ A LA CAUSA</span>
+          <h3 class="cause__card-title">Sumate a nuestro círculo <br> de rescatistas argentinos</h3>
+          <a href="#" class="cause__link">Conocé más ↗</a>
+        </div>
+        <div class="cause__text reveal">
+          <p class="eyebrow eyebrow--light">Proximamente - Escuela de guías</p>
+          <h2 class="section-title section-title--light">Certificate y accedé a la posibilidad <br class="break-desktop" /> de ayudar</h2>
         </div>
       </div>
     </section>
@@ -476,180 +739,311 @@
 
     <!-- Hero del curso -->
     <section class="course-hero">
+     <div class="course-hero__viewport">
+      <!-- Nieve cayendo (decorativa) -->
+      <div class="hero__snow" aria-hidden="true">
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+        <span class="snowflake"></span>
+      </div>
+
       <div class="course-hero__hud" aria-hidden="true">
-        <span class="hud-item hud-item--tr">FICHA TÉCNICA · CI-001<br />49.2707°S // 73.0424°W</span>
+        <span class="hud-item hud-item--tr">FICHA TÉCNICA · CI-001<br />40.1583°S // 71.3522°W</span>
       </div>
       <div class="container">
         <div class="course-hero__badges">
-          <span class="badge badge--outline">PROGRAMA DESTACADO</span>
+          <span class="badge badge--danger">PROGRAMA DESTACADO</span>
           <span class="badge badge--outline">NIVEL: INICIAL // DURACIÓN: 5 MESES</span>
         </div>
-        <h1 class="course-hero__title">Curso integral de montañismo</h1>
+        <h1 class="course-hero__title">Curso integral <br> de montañismo</h1>
         <p class="course-hero__sub">
-          Formación completa de base para operar con criterio y autonomía en
+          Formación completa de base para operar con criterio y autonomía <br> en
           la Patagonia. Sin romantizar el proceso: montaña, disciplina y realidad.
         </p>
       </div>
-    </section>
+     </div>
 
-    <!-- Diferencial del curso -->
-    <section class="course-diff">
-      <div class="container">
-        <p class="eyebrow eyebrow--light reveal">// El punto</p>
-        <p class="course-diff__copy reveal">
-          No enseñamos a “conquistar cumbres”. Enseñamos a
-          <span class="tx-danger">sobrevivir con criterio</span> y a volver. La autonomía en la Patagonia no se improvisa: se entrena hasta que las decisiones difíciles se vuelven simples.
-        </p>
+      <!-- ///////////////// NUBES (TRANSICIÓN) ///////////////// -->
+      <div class="clouds">
+        <img class="clouds__img" src="assets/img/nubes-hero.png" alt="" aria-hidden="true" />
       </div>
     </section>
 
-    <!-- Ficha técnica emocional (bloques asimétricos) -->
-    <section class="spec">
-      <div class="container spec__grid">
-        <div class="spec__card spec__card--a reveal">
-          <span class="spec__key">Duración</span>
-          <span class="spec__val">5 <small>meses</small></span>
-          <span class="spec__note">Formación continua, no intensivo de fin de semana.</span>
-        </div>
-        <div class="spec__card spec__card--b reveal">
-          <span class="spec__key">Fecha de inicio</span>
-          <span class="spec__val">04 <small>MAR</small></span>
-          <span class="spec__note">Cupos limitados. Selección por orden y aptitud.</span>
-        </div>
-        <div class="spec__card spec__card--c reveal">
-          <span class="spec__key">Dificultad</span>
-          <span class="spec__val spec__val--sm">Exigente<br /><span class="tx-danger">/ Mental</span></span>
-          <span class="spec__note">El límite casi nunca es físico. Es de criterio.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proceso de formación -->
+    <!-- 2. ¿Qué vas a aprender? -->
     <section class="course-flow">
       <div class="container">
         <p class="eyebrow eyebrow--light reveal">// Qué vas a aprender</p>
-        <h2 class="section-title reveal">Proceso de formación</h2>
-        <ol class="course-steps">
-          <li class="course-steps__item reveal">
-            <span class="course-steps__num">F1</span>
-            <div>
-              <h3>Fase teórica</h3>
-              <p>Meteorología de montaña, lectura de terreno, planificación y toma de decisiones bajo incertidumbre.</p>
-            </div>
-          </li>
-          <li class="course-steps__item reveal">
-            <span class="course-steps__num">F2</span>
-            <div>
-              <h3>Acondicionamiento de carga</h3>
-              <p>Progresión de peso, resistencia sostenida y economía de esfuerzo en jornadas largas.</p>
-            </div>
-          </li>
-          <li class="course-steps__item reveal">
-            <span class="course-steps__num">F3</span>
-            <div>
-              <h3>Maniobras de cuerda</h3>
-              <p>Anclajes, rappel, aseguramiento, autorrescate y sistemas de extracción en grietas.</p>
-            </div>
-          </li>
-          <li class="course-steps__item reveal">
-            <span class="course-steps__num">F4</span>
-            <div>
-              <h3>Supervivencia en climas hostiles</h3>
-              <p>Vivac, gestión térmica, hidratación y alimentación en frío extremo y viento sostenido.</p>
-            </div>
-          </li>
-          <li class="course-steps__item reveal">
-            <span class="course-steps__num">F5</span>
-            <div>
-              <h3>Ascenso final</h3>
-              <p>Aplicación integral de todo lo aprendido en una salida real evaluada por instructores.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+        <h2 class="section-title section-title--center reveal">Proceso de formación</h2>
+        <p class="method__sub reveal">Dividimos la formación por etapas</p>
 
-    <!-- Material incluido y equipamiento requerido -->
-    <section class="gear">
-      <div class="container">
-        <p class="eyebrow eyebrow--light reveal">// Material</p>
-        <h2 class="section-title reveal">Qué provee Cúspides / qué traés vos</h2>
-        <div class="gear__cols">
-          <div class="gear__col gear__col--provided reveal">
-            <h3 class="gear__head">Provee Cúspides</h3>
-            <ul>
-              <li>Carpas técnicas de expedición</li>
-              <li>Cuerdas dinámicas y estáticas</li>
-              <li>Equipos de comunicación satelital</li>
-              <li>Material colectivo de seguridad y rescate</li>
-              <li>Cocinas de altura y combustible</li>
-            </ul>
-          </div>
-          <div class="gear__col gear__col--required reveal">
-            <h3 class="gear__head gear__head--danger">Traés vos <span>(obligatorio)</span></h3>
-            <ul>
-              <li>Botas rígidas compatibles con crampón</li>
-              <li>Sistema de capas técnico completo</li>
-              <li>Bolsa de dormir para temperatura extrema</li>
-              <li>Arnés, casco y piolet personales</li>
-              <li>Compromiso con cada jornada. Sin excepción.</li>
-            </ul>
-            <p class="gear__filter">El equipamiento propio es el primer filtro de compromiso.</p>
-          </div>
+        <div class="accordion reveal" role="tablist" aria-label="Etapas del proceso de formación">
+          <button class="accordion__item is-active" type="button" data-step="1" role="tab" aria-selected="true">
+            <img class="accordion__img" src="assets/img/preparacion.png" alt="Evaluación y planificación inicial" />
+            <span class="accordion__overlay" aria-hidden="true"></span>
+            <span class="accordion__num">01</span>
+            <span class="accordion__title">Fase teórica</span>
+            <span class="accordion__content">
+              <span class="accordion__desc">Meteorología de montaña, lectura de terreno, planificación y toma de decisiones bajo incertidumbre.</span>
+            </span>
+          </button>
+
+          <button class="accordion__item" type="button" data-step="2" role="tab" aria-selected="false">
+            <img class="accordion__img" src="assets/img/etapa2.png" alt="Entrenamiento con carga" />
+            <span class="accordion__overlay" aria-hidden="true"></span>
+            <span class="accordion__num">02</span>
+            <span class="accordion__title">Acondicionamiento de carga</span>
+            <span class="accordion__content">
+              <span class="accordion__desc">Progresión de peso, resistencia sostenida y economía de esfuerzo en jornadas largas.</span>
+            </span>
+          </button>
+
+          <button class="accordion__item" type="button" data-step="3" role="tab" aria-selected="false">
+            <img class="accordion__img" src="assets/img/etapa4.png" alt="Maniobras de cuerda" />
+            <span class="accordion__overlay" aria-hidden="true"></span>
+            <span class="accordion__num">03</span>
+            <span class="accordion__title">Maniobras de cuerda</span>
+            <span class="accordion__content">
+              <span class="accordion__desc">Anclajes, rappel, aseguramiento, autorrescate y sistemas de extracción en grietas.</span>
+            </span>
+          </button>
+
+          <button class="accordion__item" type="button" data-step="4" role="tab" aria-selected="false">
+            <img class="accordion__img" src="assets/img/etapa3.png" alt="Práctica en terreno real" />
+            <span class="accordion__overlay" aria-hidden="true"></span>
+            <span class="accordion__num">04</span>
+            <span class="accordion__title">Supervivencia en climas hostiles</span>
+            <span class="accordion__content">
+              <span class="accordion__desc">Vivac, gestión térmica, hidratación y alimentación en frío extremo y viento sostenido.</span>
+            </span>
+          </button>
+
+          <button class="accordion__item" type="button" data-step="5" role="tab" aria-selected="false">
+            <img class="accordion__img" src="assets/img/etapa5.png" alt="Cumbre de expedición" />
+            <span class="accordion__overlay" aria-hidden="true"></span>
+            <span class="accordion__num">05</span>
+            <span class="accordion__title">Ascenso final</span>
+            <span class="accordion__content">
+              <span class="accordion__desc">Aplicación integral de todo lo aprendido en una salida real evaluada por instructores.</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Requisitos de admisión -->
-    <section class="req">
-      <div class="container">
-        <p class="eyebrow eyebrow--light reveal">// Admisión</p>
-        <h2 class="section-title reveal">Requisitos</h2>
-        <ul class="req__list">
-          <li class="reveal"><span>R1</span> Aptitud física certificada por profesional médico.</li>
-          <li class="reveal"><span>R2</span> Entrevista de resistencia al estrés y evaluación psicológica.</li>
-          <li class="reveal"><span>R3</span> Indumentaria técnica básica en condiciones.</li>
-          <li class="reveal"><span>R4</span> Disponibilidad real durante los 5 meses de formación.</li>
-        </ul>
+    <!-- 3. Datos clave del curso -->
+    <section class="stats" id="curso-meta">
+      <div class="stats__bar">
+        <div class="stats__item reveal">
+          <span class="stats__label">Duración</span>
+          <span class="stats__num" data-count="5" data-suffix=" meses">5 meses</span>
+        </div>
+        <div class="stats__item reveal">
+          <span class="stats__label">Nivel</span>
+          <span class="stats__num">Inicial</span>
+        </div>
+        <div class="stats__item reveal">
+          <span class="stats__label">Inicio</span>
+          <span class="stats__num">04 DE MARZO</span>
+        </div>
       </div>
     </section>
 
-    <!-- Módulo de conversión: precio y pago -->
+    <!-- 4. Materiales que necesitarás -->
+    <section class="gear">
+      <div class="equip-marquee" aria-hidden="true">
+        <div class="equip-marquee__track">
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq1.png" alt="" /><span class="equip-card__label">Cuerdas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq2.png" alt="" /><span class="equip-card__label">Botas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq3.png" alt="" /><span class="equip-card__label">Arnés</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq4.png" alt="" /><span class="equip-card__label">Piolet</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq1.png" alt="" /><span class="equip-card__label">Cuerdas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq2.png" alt="" /><span class="equip-card__label">Botas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq3.png" alt="" /><span class="equip-card__label">Arnés</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq4.png" alt="" /><span class="equip-card__label">Piolet</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq1.png" alt="" /><span class="equip-card__label">Cuerdas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq2.png" alt="" /><span class="equip-card__label">Botas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq3.png" alt="" /><span class="equip-card__label">Arnés</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq4.png" alt="" /><span class="equip-card__label">Piolet</span></div>
+        </div>
+      </div>
+
+      <div class="container gear__split">
+        <div class="gear__intro">
+          <p class="eyebrow eyebrow--light reveal">// El equipo que necesitás</p>
+          <h2 class="section-title reveal">Los indispensables para tu expedición</h2>
+        </div>
+        <p class="gear__sub reveal">Estos elementos son parte del equipo básico para un alpinista profesional. <br class="break-desktop" /> Son esenciales para que sea posible encarar el territorio en altura. <br class="break-desktop" /> Cúspides te provee éste equipamiento necesario.</p>
+      </div>
+
+      <div class="equip-marquee" aria-hidden="true">
+        <div class="equip-marquee__track equip-marquee__track--reverse">
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq5.png" alt="" /><span class="equip-card__label">Crampones</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq6.png" alt="" /><span class="equip-card__label">Casco</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq7.png" alt="" /><span class="equip-card__label">Gafas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq8.png" alt="" /><span class="equip-card__label">Mosquetón</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq5.png" alt="" /><span class="equip-card__label">Crampones</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq6.png" alt="" /><span class="equip-card__label">Casco</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq7.png" alt="" /><span class="equip-card__label">Gafas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq8.png" alt="" /><span class="equip-card__label">Mosquetón</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq5.png" alt="" /><span class="equip-card__label">Crampones</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq6.png" alt="" /><span class="equip-card__label">Casco</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq7.png" alt="" /><span class="equip-card__label">Gafas</span></div>
+          <div class="equip-card"><img class="equip-card__img" src="assets/img/eq8.png" alt="" /><span class="equip-card__label">Mosquetón</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-banner" aria-hidden="true">
+      <div class="info-banner__track">
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+        <span class="info-banner__text">Aprovechá esta oferta exclusiva · 20% OFF</span>
+        <span class="info-banner__dot">·</span>
+      </div>
+    </section>
+
+    <!-- 5. Precio y medios de pago -->
     <section class="pricing">
+      <div class="container pricing__head">
+        <p class="eyebrow eyebrow--light reveal">/aprovechá esta oferta exclusiva</p>
+        <h2 class="section-title section-title--center reveal">Desafiate y<br class="mobile-break" /> enfrentá la cima</h2>
+      </div>
       <div class="container">
-        <div class="price-card">
+        <div class="price-card reveal">
           <div class="price-card__left">
-            <span class="badge badge--success">20% OFF</span>
-            <h2 class="price-card__title">Inscripción abierta</h2>
-            <p class="price-card__note">
-              Pago en pesos. Opciones en cuotas sin interés con tarjeta y
-              transferencia. La reserva confirma el cupo.
-            </p>
-            <ul class="price-card__pay" aria-label="Modos de pago">
-              <li>Transferencia</li>
-              <li>Tarjeta / cuotas</li>
-              <li>Reserva anticipada</li>
-            </ul>
+            <div class="price-card__top">
+              <span class="badge badge--success">20% OFF</span>
+              <span class="price-card__old">$625.000 ARS</span>
+            </div>
+            <p class="price-card__now">$500.000 <small>ARS</small></p>
+            <div class="price-card__installment">
+              <p class="price-card__installment-label">Hasta 6 cuotas sin interés de</p>
+              <p class="price-card__installment-amount">$83.334 <small>ARS</small></p>
+            </div>
+
+            <div class="price-card__pay">
+              <span class="price-card__pay-label">Medios de pago disponibles</span>
+              <ul class="price-card__pay-icons" aria-label="Medios de pago">
+                <li><img src="assets/img/visa.webp" alt="Visa" /></li>
+                <li><img src="assets/img/Master.webp" alt="Mastercard" /></li>
+                <li><img src="assets/img/Amex.svg" alt="Amex" /></li>
+              </ul>
+            </div>
           </div>
           <div class="price-card__right">
-            <span class="price-card__old">$750.000 ARS</span>
-            <span class="price-card__now">$500.000 <small>ARS</small></span>
-            <a href="#" class="btn btn--danger btn--xl price-card__cta" id="enroll-btn">INSCRIBITE</a>
+            <ul class="price-card__features">
+              <li>Clases teóricas y prácticas con guías UIAGM.</li>
+              <li>Seguimiento en la preparación física.</li>
+              <li>Salida de expedición final incluida.</li>
+              <li>Certificación oficial Cúspides al finalizar.</li>
+              <li>Acceso a la comunidad de egresados.</li>
+            </ul>
+            <a href="#" class="btn btn--danger price-card__cta" id="enroll-btn">Inscribite al curso</a>
             <span class="price-card__fine">Cupos limitados · Selección por aptitud</span>
           </div>
         </div>
       </div>
+
+      <div class="pricing__mountains" aria-hidden="true">
+        <img src="assets/img/montanas.png" alt="" />
+      </div>
     </section>
 
-    <!-- Cierre retador -->
-    <section class="course-closing">
+    <!-- 6. Quiénes te forman -->
+    <section class="team">
       <div class="container">
-        <p class="course-closing__title">
-          <span class="reveal-line">La Patagonia no perdona</span>
-          <span class="reveal-line tx-danger">la improvisación.</span>
-          <span class="reveal-line">Postulá solo si estás listo</span>
-          <span class="reveal-line">para el esfuerzo.</span>
-        </p>
+        <p class="eyebrow eyebrow--light reveal">// El equipo</p>
+        <h2 class="section-title section-title--center reveal">Conocé a tus instructores</h2>
+        <p class="team__sub reveal">Guías certificados, con expediciones reales detrás — no solo teoría.</p>
+
+        <div class="team__grid">
+          <article class="team-card reveal">
+            <div class="team-card__media">
+              <img src="assets/img/inst2.png" alt="Martín Ibáñez, guía principal del curso" />
+            </div>
+            <h3 class="team-card__name">Martín Ibáñez</h3>
+            <p class="team-card__role">Guía de montaña · UIAGM</p>
+            <p class="team-card__bio">15 años guiando expediciones en Patagonia. A cargo de la evaluación técnica y la salida final.</p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-card__media">
+              <img src="assets/img/inst1.png" alt="Sofía Reyes, instructora de primeros auxilios" />
+            </div>
+            <h3 class="team-card__name">Sofía Reyes</h3>
+            <p class="team-card__role">Rescatista · Primeros auxilios</p>
+            <p class="team-card__bio">Responsable de los protocolos de seguridad y de la formación en manejo de emergencias.</p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-card__media">
+              <img src="assets/img/inst3.png" alt="Diego Farías, preparador físico" />
+            </div>
+            <h3 class="team-card__name">Diego Farías</h3>
+            <p class="team-card__role">Preparador físico</p>
+            <p class="team-card__bio">Diseña la progresión de carga y resistencia para que llegues en forma al terreno real.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ///////////////// CITA ///////////////// -->
+    <section class="quote">
+      <div class="quote__media" aria-hidden="true">
+        <video src="assets/video/detalle.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <blockquote class="quote__content container reveal">
+        <p class="quote__text">"La cima va a seguir estando ahí, vos decidís <br> si te enfrentás a ella."</p>
+      </blockquote>
+    </section>
+
+    <!-- 7. Galería -->
+    <section class="course-gallery">
+      <div class="container">
+        <p class="eyebrow eyebrow--light reveal">// En terreno</p>
+        <h2 class="section-title section-title--center reveal">Galería de nuestros alumnos</h2>
+      </div>
+
+      <div class="carousel course-gallery__carousel" id="course-gallery-carousel">
+        <div class="carousel__track">
+          <figure class="course-gallery__item"><img src="assets/img/gal3.png" alt="Expedición en glaciar" /></figure>
+          <figure class="course-gallery__item"><img src="assets/img/gal1.jpg" alt="Ascenso técnico en roca" /></figure>
+          <figure class="course-gallery__item"><img src="assets/img/gal2.jpg" alt="Campamento de altura" /></figure>
+          <figure class="course-gallery__item"><img src="assets/img/gal4.jpg" alt="Progresión en hielo" /></figure>
+          <figure class="course-gallery__item"><img src="assets/img/gal5.jpg" alt="Vivac en altura" /></figure>
+          <figure class="course-gallery__item"><img src="assets/img/gal6.jpg" alt="Cordada en marcha" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal3.png" alt="" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal1.jpg" alt="" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal2.jpg" alt="" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal4.jpg" alt="" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal5.jpg" alt="" /></figure>
+          <figure class="course-gallery__item" aria-hidden="true"><img src="assets/img/gal6.jpg" alt="" /></figure>
+        </div>
       </div>
     </section>
 
@@ -663,18 +1057,41 @@
       <div class="site-footer__brand">
         <span class="brand__word">CÚSPIDES</span>
         <p>Formación en montañismo y andinismo extremo.<br />Patagonia — 49.2707°S / 73.0424°W</p>
+        <a href="#hero" class="btn btn--ghost-light footer-back" data-nav="home">Volver al inicio ↑</a>
       </div>
-      <nav class="site-footer__nav" aria-label="Pie de página">
-        <a href="#territorio" data-nav="home">Territorio</a>
-        <a href="#metodo" data-nav="home">Método</a>
-        <a href="#programas" data-nav="home">Programas</a>
-        <a href="#causa" data-nav="home">Seguridad</a>
-        <a href="biblioteca.html">Biblioteca</a>
+
+      <nav class="site-footer__col" aria-label="Pie de página">
+        <h3 class="site-footer__heading">Secciones</h3>
+        <div class="site-footer__nav">
+          <a href="#territorio" data-nav="home">Territorio</a>
+          <a href="#metodo" data-nav="home">Método</a>
+          <a href="#programas" data-nav="home">Programas</a>
+          <a href="#causa" data-nav="home">Seguridad</a>
+          <a href="biblioteca.html">Biblioteca</a>
+        </div>
       </nav>
-      <div class="site-footer__meta">
-        <span>© MMXXVI · Todos los derechos reservados</span>
-        <span>El terreno no negocia. Nosotros tampoco.</span>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__heading">Contacto</h3>
+        <p class="site-footer__contact">cuspides@info.com.ar</p>
+        <p class="site-footer__contact">+54 9 11 3787-3456</p>
+        <p class="site-footer__contact">Patagonia, Argentina</p>
+        <p class="site-footer__contact">49.2707°S // 73.0424°W</p>
       </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__heading">Ubicación</h3>
+        <div class="footer-map" aria-hidden="true">
+          <span class="footer-map__pin"></span>
+          <span class="footer-map__chip">Cúspides</span>
+        </div>
+        <span class="footer-map__link">Ver ubicación ↗</span>
+      </div>
+    </div>
+
+    <div class="container site-footer__meta">
+      <span>© MMXXVI · Todos los derechos reservados</span>
+      <span>El terreno no negocia. Nosotros tampoco.</span>
     </div>
   </footer>
 
