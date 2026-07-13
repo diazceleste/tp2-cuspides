@@ -18,11 +18,14 @@
   const homeView   = document.getElementById('home-view');
   const detailView = document.getElementById('detail-view');
 
+  const DETAIL_HASH = '#detalle';
+
   /**
    * Muestra una vista y oculta la otra, con scroll suave al inicio.
    * @param {'home'|'detail'} target
+   * @param {boolean} updateHash Si actualiza la URL (false al reaccionar a hashchange)
    */
-  function switchView(target) {
+  function switchView(target, updateHash = true) {
     const showHome = target === 'home';
 
     // Alterna clases y accesibilidad
@@ -39,6 +42,12 @@
 
     // Re-dispara las animaciones de revelado de la vista activa
     requestAnimationFrame(() => initReveals(showHome ? homeView : detailView));
+
+    // Refleja la vista en la URL para que sea linkeable (ej. index.html#detalle)
+    if (updateHash) {
+      const url = target === 'detail' ? DETAIL_HASH : window.location.pathname + window.location.search;
+      history.pushState({ view: target }, '', url);
+    }
   }
 
   // Cualquier elemento con data-open-course abre la ficha del curso
@@ -61,6 +70,16 @@
     link.addEventListener('click', () => {
       if (!homeView.classList.contains('is-active')) switchView('home');
     });
+  });
+
+  // Entrar directo con #detalle en la URL abre la ficha del curso al cargar
+  if (window.location.hash === DETAIL_HASH) {
+    switchView('detail', false);
+  }
+
+  // Soporta los botones atrás/adelante del navegador
+  window.addEventListener('popstate', () => {
+    switchView(window.location.hash === DETAIL_HASH ? 'detail' : 'home', false);
   });
 
   /* ---------------------------------------------------------------------- */
